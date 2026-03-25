@@ -24,7 +24,7 @@ async function handleRequest(request) {
   // 4. Header 清洗：统一 User-Agent 并仅放行必要 Header
   const headers = new Headers()
   headers.set('User-Agent', 'Cloudflare-Worker/1.0')
-  for (const key of ['Accept', 'Accept-Encoding', 'Range', 'If-None-Match', 'If-Modified-Since']) {
+  for (const key of ['Accept', 'Range', 'If-None-Match', 'If-Modified-Since']) {
     const val = request.headers.get(key)
     if (val) headers.set(key, val)
   }

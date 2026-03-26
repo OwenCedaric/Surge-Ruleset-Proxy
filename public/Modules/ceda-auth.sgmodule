@@ -1,0 +1,10 @@
+#!name=Ceda Auth
+#!desc=自动注入 API 验证所需的 X-Worker-Auth Header
+#!category=Ceda.is
+#!arguments=Auth:鉴权Token
+
+[Header Rewrite]
+^https?://cfgimage\.ceda\.is/api/convert header-add X-Worker-Auth {{{Auth}}}
+
+[MITM]
+hostname = %APPEND% cfgimage.ceda.is

@@ -5,6 +5,7 @@
 
 [Header Rewrite]
 ^https?://cfgimage\.ceda\.is/api/convert header-add X-Worker-Auth {{{Auth}}}
+^https?://nanobase\.ceda\.is/api/upload header-add Authorization "Bearer {{{Auth}}}"
 
 [MITM]
-hostname = %APPEND% cfgimage.ceda.is
+hostname = %APPEND% cfgimage.ceda.is, nanobase.ceda.is

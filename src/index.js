@@ -13,7 +13,6 @@ async function handleRequest(request) {
   // 2. 边缘防御：丢弃所有查询参数，彻底阻断利用参数造成的 CDN 缓存击穿攻击
   const targetPath = url.pathname
 
-
   // 3. 上游节点阵列 (按优先级排序)
   const UPSTREAMS = [
     'https://ruleset.skk.moe',
@@ -29,62 +28,42 @@ async function handleRequest(request) {
     if (val) headers.set(key, val)
   }
 
-  const controllers = UPSTREAMS.map(() => new AbortController())
+  // 5. 串行兜底逻辑
+  let finalResponse = null;
 
-  // 5. 级联竞速逻辑
-  const executeRace = () => new Promise((resolve, reject) => {
-    let failedCount = 0
-    let nextIndex = 0
-    let isResolved = false
-
-    const tryNext = () => {
-      if (isResolved || nextIndex >= UPSTREAMS.length) return
-      
-      const currentIndex = nextIndex++
-        const targetUrl = new URL(targetPath, UPSTREAMS[currentIndex])
-      let timer
-
-      fetch(targetUrl, {
+  for (const upstream of UPSTREAMS) {
+    const targetUrl = new URL(targetPath, upstream)
+    
+    try {
+      const res = await fetch(targetUrl, {
         method: 'GET',
         headers,
-        redirect: 'follow',
-        signal: controllers[currentIndex].signal
-      }).then(res => {
-        if (isResolved) return
-        if (res.status >= 500) throw new Error('5xx')
-
-        isResolved = true
-        clearTimeout(timer)
-        resolve({ winnerIndex: currentIndex, res })
-      }).catch(() => {
-        if (isResolved) return
-        clearTimeout(timer)
-        failedCount++
-        
-        if (failedCount === UPSTREAMS.length) {
-          reject(new Error('All upstreams failed'))
-        } else {
-          tryNext()
-        }
+        redirect: 'follow'
       })
 
-      // 800ms 慢节点容忍期，超时自动拉起下一个节点
-      timer = setTimeout(() => {
-        if (!isResolved) tryNext()
-      }, 800)
-    }
+      // 遇到 5xx 错误视为节点服务端异常，继续尝试下一个节点
+      if (res.status >= 500) {
+        continue
+      }
 
-    tryNext()
-  })
+      // 获取到有效响应 (2xx, 3xx, 4xx) 时，中断循环
+      finalResponse = res
+      break
+      
+    } catch (err) {
+      // 捕获 Fetch 级别的网络错误 (如 DNS 解析失败、连接超时拒绝等)，继续尝试下一个
+      continue
+    }
+  }
+
+  // 如果遍历完所有节点依然没有获取到有效响应
+  if (!finalResponse) {
+    return new Response('All upstreams failed', { status: 502 })
+  }
+
+  const res = finalResponse
 
   try {
-    const { winnerIndex, res } = await executeRace()
-
-    // 释放未胜出节点的连接
-    controllers.forEach((ctrl, i) => {
-      if (i !== winnerIndex) ctrl.abort()
-    })
-
     // 6. 首页注入代理说明
     if (res.ok && (url.pathname === '/' || url.pathname === '/index.html')) {
       const contentType = res.headers.get('content-type') || ''
@@ -97,7 +76,7 @@ async function handleRequest(request) {
         )
 
         const newHeaders = new Headers(res.headers)
-        newHeaders.delete('content-length')
+        newHeaders.delete('content-length') // 修改了内容，必须删除原有的长度 Header
         
         return new Response(html, {
           status: res.status,
@@ -109,6 +88,7 @@ async function handleRequest(request) {
 
     return res
   } catch (err) {
-    return new Response('All upstreams failed', { status: 502 })
+    // 处理文本解析或注入时可能发生的异常
+    return new Response('Error processing upstream response', { status: 500 })
   }
 }

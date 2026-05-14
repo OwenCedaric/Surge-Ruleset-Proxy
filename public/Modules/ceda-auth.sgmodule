@@ -1,11 +1,11 @@
 #!name=Ceda Auth
-#!desc=自动注入 API 验证所需的 X-Worker-Auth Header
+#!desc=自动注入 API 验证所需的 Authorization Header
 #!category=Ceda.is
 #!arguments=Auth:鉴权Token
 
 [Header Rewrite]
-^https?://cfgimage\.ceda\.is/api/convert header-add X-Worker-Auth {{{Auth}}}
 ^https?://nanobase\.ceda\.is/api/upload header-add Authorization "Bearer {{{Auth}}}"
+^https?://tinge\.ceda\.is/api/ header-add X-Worker-Auth {{{Auth}}}
 
 [MITM]
-hostname = %APPEND% cfgimage.ceda.is, nanobase.ceda.is
+hostname = %APPEND% nanobase.ceda.is, tinge.ceda.is

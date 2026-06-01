@@ -5,7 +5,7 @@
 
 [Header Rewrite]
 ^https?://nanobase\.ceda\.is/api/upload header-add Authorization "Bearer {{{Auth}}}"
-^https?://tinge\.ceda\.is/api/ header-add X-Worker-Auth {{{Auth}}}
+^https?://tinge\.ceda\.is/api/ header-add Authorization "Bearer {{{Auth}}}"
 ^https?://prompt\.ceda\.is/api/ header-add Authorization "Bearer {{{Auth}}}"
 
 [MITM]

@@ -1,0 +1,218 @@
+{
+  "name": "RemixIcon Surge",
+  "description": "A Surge Iconset based on RemixIcon.",
+  "theme_color": "#939597",
+  "icon_size": "108x108",
+  "icons": [
+    {
+      "id": "Spotify",
+      "name": "Spotify",
+      "url": "https://fleet.ceda.is/icons/remix/spotify.png"
+    },
+    {
+      "id": "Auto",
+      "name": "Auto",
+      "url": "https://fleet.ceda.is/icons/remix/auto.png"
+    },
+    {
+      "id": "Global",
+      "name": "Global",
+      "url": "https://fleet.ceda.is/icons/remix/global.png"
+    },
+    {
+      "id": "Telegram",
+      "name": "Telegram",
+      "url": "https://fleet.ceda.is/icons/remix/telegram.png"
+    },
+    {
+      "id": "Openai",
+      "name": "Openai",
+      "url": "https://fleet.ceda.is/icons/remix/openai.png"
+    },
+    {
+      "id": "Github",
+      "name": "Github",
+      "url": "https://fleet.ceda.is/icons/remix/github.png"
+    },
+    {
+      "id": "Bilibili",
+      "name": "Bilibili",
+      "url": "https://fleet.ceda.is/icons/remix/bilibili.png"
+    },
+    {
+      "id": "Microsoft",
+      "name": "Microsoft",
+      "url": "https://fleet.ceda.is/icons/remix/microsoft.png"
+    },
+    {
+      "id": "Node",
+      "name": "Node",
+      "url": "https://fleet.ceda.is/icons/remix/node.png"
+    },
+    {
+      "id": "Netflix",
+      "name": "Netflix",
+      "url": "https://fleet.ceda.is/icons/remix/netflix.png"
+    },
+    {
+      "id": "Apple",
+      "name": "Apple",
+      "url": "https://fleet.ceda.is/icons/remix/apple.png"
+    },
+    {
+      "id": "REJECT",
+      "name": "REJECT",
+      "url": "https://fleet.ceda.is/icons/remix/reject.png"
+    },
+    {
+      "id": "Proxy",
+      "name": "Proxy",
+      "url": "https://fleet.ceda.is/icons/remix/proxy.png"
+    },
+    {
+      "id": "Twitter",
+      "name": "Twitter",
+      "url": "https://fleet.ceda.is/icons/remix/twitter.png"
+    },
+    {
+      "id": "Discord",
+      "name": "Discord",
+      "url": "https://fleet.ceda.is/icons/remix/discord.png"
+    },
+    {
+      "id": "Fallback",
+      "name": "Fallback",
+      "url": "https://fleet.ceda.is/icons/remix/fallback.png"
+    },
+    {
+      "id": "Youtube",
+      "name": "Youtube",
+      "url": "https://fleet.ceda.is/icons/remix/youtube.png"
+    },
+    {
+      "id": "Domestic",
+      "name": "Domestic",
+      "url": "https://fleet.ceda.is/icons/remix/domestic.png"
+    },
+    {
+      "id": "Google",
+      "name": "Google",
+      "url": "https://fleet.ceda.is/icons/remix/google.png"
+    },
+    {
+      "id": "DIRECT",
+      "name": "DIRECT",
+      "url": "https://fleet.ceda.is/icons/remix/direct.png"
+    },
+    {
+      "id": "AI",
+      "name": "AI",
+      "url": "https://fleet.ceda.is/icons/remix/ai.png"
+    },
+    {
+      "id": "AutoProxy",
+      "name": "AutoProxy",
+      "url": "https://fleet.ceda.is/icons/remix/autoproxy.png"
+    },
+    {
+      "id": "Server",
+      "name": "Server",
+      "url": "https://fleet.ceda.is/icons/remix/server.png"
+    },
+    {
+      "id": "CDN",
+      "name": "CDN",
+      "url": "https://fleet.ceda.is/icons/remix/cdn.png"
+    },
+    {
+      "id": "Speedtest",
+      "name": "Speedtest",
+      "url": "https://fleet.ceda.is/icons/remix/speedtest.png"
+    },
+    {
+      "id": "Provider",
+      "name": "Provider",
+      "url": "https://fleet.ceda.is/icons/remix/provider.png"
+    },
+    {
+      "id": "Location",
+      "name": "Location",
+      "url": "https://fleet.ceda.is/icons/remix/location.png"
+    },
+    {
+      "id": "SSID",
+      "name": "SSID",
+      "url": "https://fleet.ceda.is/icons/remix/ssid.png"
+    },
+    {
+      "id": "Cellular",
+      "name": "Cellular",
+      "url": "https://fleet.ceda.is/icons/remix/cellular.png"
+    },
+    {
+      "id": "Router",
+      "name": "Router",
+      "url": "https://fleet.ceda.is/icons/remix/router.png"
+    },
+    {
+      "id": "Streaming",
+      "name": "Streaming",
+      "url": "https://fleet.ceda.is/icons/remix/streaming.png"
+    },
+    {
+      "id": "Gaming",
+      "name": "Gaming",
+      "url": "https://fleet.ceda.is/icons/remix/gaming.png"
+    },
+    {
+      "id": "Download",
+      "name": "Download",
+      "url": "https://fleet.ceda.is/icons/remix/download.png"
+    },
+    {
+      "id": "Scholar",
+      "name": "Scholar",
+      "url": "https://fleet.ceda.is/icons/remix/scholar.png"
+    },
+    {
+      "id": "Crypto",
+      "name": "Crypto",
+      "url": "https://fleet.ceda.is/icons/remix/crypto.png"
+    },
+    {
+      "id": "Mail",
+      "name": "Mail",
+      "url": "https://fleet.ceda.is/icons/remix/mail.png"
+    },
+    {
+      "id": "Social",
+      "name": "Social",
+      "url": "https://fleet.ceda.is/icons/remix/social.png"
+    },
+    {
+      "id": "Shopping",
+      "name": "Shopping",
+      "url": "https://fleet.ceda.is/icons/remix/shopping.png"
+    },
+    {
+      "id": "Privacy",
+      "name": "Privacy",
+      "url": "https://fleet.ceda.is/icons/remix/privacy.png"
+    },
+    {
+      "id": "Pin-distance",
+      "name": "Pin-distance",
+      "url": "https://fleet.ceda.is/icons/remix/pin-distance.png"
+    },
+    {
+      "id": "Send-ins",
+      "name": "Send-ins",
+      "url": "https://fleet.ceda.is/icons/remix/send-ins.png"
+    },
+    {
+      "id": "Pulse",
+      "name": "Pulse",
+      "url": "https://fleet.ceda.is/icons/remix/pulse.png"
+    }
+  ]
+}

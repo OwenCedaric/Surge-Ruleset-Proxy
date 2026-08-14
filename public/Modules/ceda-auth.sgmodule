@@ -7,6 +7,7 @@
 ^https?://nanobase\.ceda\.is/api/upload header-add Authorization "Bearer {{{Auth}}}"
 ^https?://tinge\.ceda\.is/api/ header-add Authorization "Bearer {{{Auth}}}"
 ^https?://prompt\.ceda\.is/api/ header-add Authorization "Bearer {{{Auth}}}"
+^https?://ozondata\.ceda\.is/ header-add Authorization "Bearer {{{Auth}}}"
 
 [MITM]
-hostname = %APPEND% nanobase.ceda.is, tinge.ceda.is, prompt.ceda.is
+hostname = %APPEND% nanobase.ceda.is, tinge.ceda.is, prompt.ceda.is, ozondata.ceda.is

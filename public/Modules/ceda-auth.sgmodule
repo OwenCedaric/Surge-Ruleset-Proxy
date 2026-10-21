@@ -5,9 +5,10 @@
 
 [Header Rewrite]
 ^https?://nanobase\.ceda\.is/api/upload header-add Authorization "Bearer {{{Auth}}}"
-^https?://tinge\.ceda\.is/api/ header-add Authorization "Bearer {{{Auth}}}"
+^https?://image\.ceda\.is/api/ header-add Authorization "Bearer {{{Auth}}}"
 ^https?://prompt\.ceda\.is/api/ header-add Authorization "Bearer {{{Auth}}}"
 ^https?://ozon\.ceda\.is/ header-add Authorization "Bearer {{{Auth}}}"
+^https?://corpus\.ceda\.is/ header-add Authorization "Bearer {{{Auth}}}"
 
 [MITM]
-hostname = %APPEND% nanobase.ceda.is, tinge.ceda.is, prompt.ceda.is, ozon.ceda.is
+hostname = %APPEND% nanobase.ceda.is, image.ceda.is, prompt.ceda.is, ozon.ceda.is, corpus.ceda.is
